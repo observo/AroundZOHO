@@ -1,4 +1,4 @@
-# GMail-Zoho
+# AroundZOHO
 A templated email extractor from GMail and put the data into Zoho as Account and Contact.
 Its in PHP.
 Two libraries have been used.
