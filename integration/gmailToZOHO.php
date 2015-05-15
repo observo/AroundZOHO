@@ -1,49 +1,56 @@
 <?php
+	//ADDING HEADER TO APPROPRIATE MIME-TYPE AND CONTENT-TYPE
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	
-	
+	//DEFINING BASE URL RELATIVE TO HOSTING
 	define('BASE_URL', '/var/www/html/');
+
+	//GMAIL OPTIONS
 	define('EMAIL_HOSTNAME', '{imap.gmail.com:993/imap/ssl}INBOX');
 	define('EMAIL_USERNAME', 'your_email@gmail.com');
 	define('EMAIL_PASSWORD', 'email_password');
     
+	//AUTOLOADING OF CLASSES. THIS IS PSR-0 COMPLIANT.
 	require_once(BASE_URL.'mail/vendor/autoload.php');
-    require_once(BASE_URL.'mail/TextParserClass.php');
-    require_once(BASE_URL.'hs/zohocrm-php/src/autoload.php');
+    	require_once(BASE_URL.'mail/TextParserClass.php');
+    	require_once(BASE_URL.'zohocrm-php/src/autoload.php');
     
+	//SET TIMEZONE. HERE ITS UTC.
 	date_default_timezone_set('UTC');
-	//ZOHO CRM INSTALLED
+
+	//ZOHO CRM INITIALIZATION
 	$client=new ZohoCRM\Client('auth_token_from_zoho');
-    $params=array();
-    $params['duplicateCheck'] = 2;
+    	$params=array();
+    	$params['duplicateCheck'] = 2;
     
 	//GMAIL IMAP INBOX RETRIEVED
 	$inbox = imap_open(EMAIL_HOSTNAME,EMAIL_USERNAME,EMAIL_PASSWORD) or die('Cannot connect to Gmail: ' . imap_last_error());
 	$date = date("d M Y", strToTime ( "-1 days" ));
 	$emails = imap_search($inbox, "SINCE \"$date\"", SE_UID);
 	if($emails) {
-	rsort($emails);
-    foreach($emails as $email_number) {
-        $overview = imap_fetch_overview($inbox,$email_number,0);
-        $message = imap_fetchbody($inbox,$email_number,1);
-		$smsAddress='donotreply@alstontascom.com';
-        $AccountData=array();
-        $contactData=array();
-        $emailArrivalDateTime=new DateTime($overview[0]->date);
-        $emailArrivalDateTime=$emailArrivalDateTime->format('Y-m-d H:i:s');
+	    rsort($emails);
+	    foreach($emails as $email_number) {
+        	$overview = imap_fetch_overview($inbox,$email_number,0);
+        	$message = imap_fetchbody($inbox,$email_number,1);
+		//THIS IS FOR VERY SPECIFIC REASON.
+		$smsAddress='donotreply@example.com';
+        	$accountData=array();
+        	$contactData=array();
+        	$emailArrivalDateTime=new DateTime($overview[0]->date);
+        	$emailArrivalDateTime=$emailArrivalDateTime->format('Y-m-d H:i:s');
 		$contactData['Email Arrival Time']=$emailArrivalDateTime;
-        $fromAddress=$overview[0]->from;
-        $textToParse = strip_tags($message);
+        	$fromAddress=$overview[0]->from;
+        	$textToParse = strip_tags($message);
 		try{
-            $parser = new TextParser(BASE_URL.'mail/templates');
-            $parsedContact=$parser->parseText($textToParse);
-            $parsedContact=array_map('trim', $parsedContact);
-        }catch (Exception $e) {
-            echo '<b>Error:</b> ' . $e->getMessage();
-        }
-        if($fromAddress==$smsAddress){
-            $contactData['Lead Source']='Phone Call';
+            		$parser = new TextParser(BASE_URL.'mail/templates');
+            		$parsedContact=$parser->parseText($textToParse);
+           		$parsedContact=array_map('trim', $parsedContact);
+        	}catch (Exception $e) {
+            		echo '<b>Error:</b> ' . $e->getMessage();
+        	}
+        	if($fromAddress==$smsAddress){
+            		$contactData['Lead Source']='Phone Call';
             $inDateTime=explode(' ', $parsedContact['in'], 3);
             if(!empty($inDateTime)){
                                 $inDate=strtolower($inDateTime[0]);
