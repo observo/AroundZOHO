@@ -11,4 +11,4 @@ Personal Credit Score:{%personalCreditScore%}
 Time in Business:{%timeInBusiness%}
 Annual Sales:{%annualSales%}
 Message{%message%}
-This e-mail was sent from a contact form on Fundlift.
+This e-mail was sent from a contact form on ***.

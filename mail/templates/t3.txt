@@ -3,4 +3,4 @@ Phone:{%phone%}
 
 Message Body:{%message%}
 --
-This e-mail was sent from a contact form on Fundlift.
+This e-mail was sent from a contact form on ***.
