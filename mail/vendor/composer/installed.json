@@ -1,0 +1,121 @@
+[
+    {
+        "name": "ddeboer/transcoder",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ddeboer/transcoder.git",
+            "reference": "8781195ad1334add26dca66a4a823b7973639754"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ddeboer/transcoder/zipball/8781195ad1334add26dca66a4a823b7973639754",
+            "reference": "8781195ad1334add26dca66a4a823b7973639754",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "ext-iconv": "For using the IconvTranscoder",
+            "ext-mbstring": "For using the MbTranscoder"
+        },
+        "time": "2015-01-23 14:32:33",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ddeboer\\Transcoder\\": "src/",
+                "Ddeboer\\Transcoder\\Tests\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "David de Boer",
+                "email": "david@ddeboer.nl"
+            },
+            {
+                "name": "Community contributors",
+                "homepage": "https://github.com/ddeboer/transcoder/graphs/contributors"
+            }
+        ],
+        "description": "Better encoding conversion for PHP",
+        "keywords": [
+            "charset",
+            "encoding",
+            "iconv",
+            "iso",
+            "mb",
+            "multibyte",
+            "utf-8"
+        ]
+    },
+    {
+        "name": "ddeboer/imap",
+        "version": "0.5.1",
+        "version_normalized": "0.5.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ddeboer/imap.git",
+            "reference": "66ee8a936bf8f54480c4b0005df15daf02e8bffb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ddeboer/imap/zipball/66ee8a936bf8f54480c4b0005df15daf02e8bffb",
+            "reference": "66ee8a936bf8f54480c4b0005df15daf02e8bffb",
+            "shasum": ""
+        },
+        "require": {
+            "ddeboer/transcoder": "~1",
+            "ext-imap": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "ext-iconv": "*",
+            "ext-mbstring": "*",
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2015-02-01 22:16:57",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ddeboer\\Imap\\": "src/",
+                "Ddeboer\\Imap\\Tests\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "David de Boer",
+                "email": "david@ddeboer.nl"
+            },
+            {
+                "name": "Community contributors",
+                "homepage": "https://github.com/ddeboer/imap/graphs/contributors"
+            }
+        ],
+        "description": "Object-oriented IMAP for PHP",
+        "keywords": [
+            "email",
+            "imap",
+            "mail"
+        ]
+    }
+]

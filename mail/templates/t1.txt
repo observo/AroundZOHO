@@ -1,0 +1,7 @@
+IN{%in%}
+DL{%dl%}
+FOR:{%for%}
+FROM:{%from%}
+COMPANY:{%company%}
+TEL #:{%tel%}
+CALLER ID{%callerID%}

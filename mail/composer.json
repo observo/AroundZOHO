@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ddeboer/imap": "0.5.*"
+    }
+}

@@ -1,0 +1,14 @@
+From:{%from%}
+Personal Information
+Name:{%name%}
+Email:{%email%}
+Phone:{%phone%}
+Company Information
+Company:{%company%}
+Company Website:{%companyWebsite%}
+Amount of Funding Needed:{%amountOfFundingNeeded%}
+Personal Credit Score:{%personalCreditScore%}
+Time in Business:{%timeInBusiness%}
+Annual Sales:{%annualSales%}
+Message{%message%}
+This e-mail was sent from a contact form on Fundlift.
