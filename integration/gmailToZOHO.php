@@ -139,6 +139,7 @@
                         $client->setModule('Accounts');
                         $data=array();
                         $data["records"][]=$accountData;
+                        //THe NEXT  LINE IS FOR ZOHO ACCOUNTS MODULE INSERTION
                         $res=$client->insertRecords($data, $params);
                         var_dump($res);
                 }
@@ -146,6 +147,7 @@
                         $client->setModule('Contacts');
                         $data=array();
                         $data["records"][]=$contactData;
+                        //THe NEXT  LINE IS FOR ZOHO CONTACTS MODULE INSERTION
                         $res=$client->insertRecords($data, $params);
                         var_dump($res);
                 }
